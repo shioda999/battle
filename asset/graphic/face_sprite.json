@@ -1,0 +1,18 @@
+{
+	"frames": {
+		"face_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 21, "h": 21},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 21, "h": 21},
+			"sourceSize": {"w": 21, "h": 21}
+		}
+	},
+	"meta": {
+		"image": "face.png",
+		"format": "RGBA8888",
+		"size": {"w":21,"h":21},
+		"scale": "1"
+	}
+}

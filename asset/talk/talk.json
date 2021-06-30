@@ -1,0 +1,29 @@
+{
+	"villege": {
+		"bukiya": {
+			"default": [
+				"何を買いましょう...",
+				"weapone"
+			],
+			"weapon_list": [
+				"aaa",
+				"bbb"
+			]
+		},
+		"douguya": {
+			"default": [
+				"ここは道具屋です。まだ準備中です。"
+			]
+		},
+		"tueya": {
+			"default": [
+				"ここは杖屋です。まだ準備中です。"
+			]
+		},
+		"sakaya": {
+			"default": [
+				"ここは酒屋です。まだ準備中です。"
+			]
+		}
+	}
+}

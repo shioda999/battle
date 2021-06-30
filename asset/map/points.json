@@ -1,0 +1,93 @@
+[
+    {
+        "name": "hakone",
+        "pos": [
+            88,
+            177
+        ]
+    },
+    {
+        "name": "odawara",
+        "pos": [
+            119,
+            158
+        ],
+        "enemy_pattern": [
+            {
+                "p": 1,
+                "enemys": [
+                    {
+                        "name": "slime",
+                        "num": "1,2,3,4"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "hiratuka",
+        "pos": [
+            160,
+            138
+        ],
+        "enemy_pattern": [
+            {
+                "p": 0.7,
+                "enemys": [
+                    {
+                        "name": "slime",
+                        "num": "3,5,7"
+                    }
+                ]
+            },
+            {
+                "p": 0.3,
+                "enemys": [
+                    {
+                        "name": "slime",
+                        "num": "0,3"
+                    },
+                    {
+                        "name": "zombie",
+                        "num": "1,2,3"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "kamakura",
+        "pos": [
+            216,
+            143
+        ]
+    },
+    {
+        "name": "miura",
+        "pos": [
+            240,
+            200
+        ]
+    },
+    {
+        "name": "yokosuka",
+        "pos": [
+            248,
+            155
+        ]
+    },
+    {
+        "name": "yokohama",
+        "pos": [
+            239,
+            104
+        ]
+    },
+    {
+        "name": "atsugi",
+        "pos": [
+            164,
+            100
+        ]
+    }
+]

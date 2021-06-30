@@ -1,0 +1,130 @@
+{
+	"frames": {
+		"tool_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_1.png":
+		{
+			"frame": {"x": 30, "y": 0, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_2.png":
+		{
+			"frame": {"x": 60, "y": 0, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_3.png":
+		{
+			"frame": {"x": 0, "y": 30, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_4.png":
+		{
+			"frame": {"x": 30, "y": 30, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_5.png":
+		{
+			"frame": {"x": 60, "y": 30, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_6.png":
+		{
+			"frame": {"x": 0, "y": 60, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_7.png":
+		{
+			"frame": {"x": 30, "y": 60, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_8.png":
+		{
+			"frame": {"x": 60, "y": 60, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_9.png":
+		{
+			"frame": {"x": 0, "y": 90, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_10.png":
+		{
+			"frame": {"x": 30, "y": 90, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_11.png":
+		{
+			"frame": {"x": 60, "y": 90, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_12.png":
+		{
+			"frame": {"x": 0, "y": 120, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_13.png":
+		{
+			"frame": {"x": 30, "y": 120, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		},
+		"tool_14.png":
+		{
+			"frame": {"x": 60, "y": 120, "w": 30, "h": 30},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 30, "h": 30},
+			"sourceSize": {"w": 30, "h": 30}
+		}
+	},
+	"meta": {
+		"image": "tool.png",
+		"format": "RGBA8888",
+		"size": {"w":90,"h":150},
+		"scale": "1"
+	}
+}

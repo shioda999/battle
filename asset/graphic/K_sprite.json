@@ -1,0 +1,18 @@
+{
+	"frames": {
+		"K_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 320, "h": 240},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 320, "h": 240},
+			"sourceSize": {"w": 320, "h": 240}
+		}
+	},
+	"meta": {
+		"image": "K.png",
+		"format": "RGBA8888",
+		"size": {"w":320,"h":240},
+		"scale": "1"
+	}
+}

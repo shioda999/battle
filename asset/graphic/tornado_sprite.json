@@ -1,0 +1,106 @@
+{
+	"frames": {
+		"tornado_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_1.png":
+		{
+			"frame": {"x": 60, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_2.png":
+		{
+			"frame": {"x": 120, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_3.png":
+		{
+			"frame": {"x": 180, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_4.png":
+		{
+			"frame": {"x": 240, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_5.png":
+		{
+			"frame": {"x": 300, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_6.png":
+		{
+			"frame": {"x": 360, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_7.png":
+		{
+			"frame": {"x": 420, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_8.png":
+		{
+			"frame": {"x": 480, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_9.png":
+		{
+			"frame": {"x": 540, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_10.png":
+		{
+			"frame": {"x": 600, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		},
+		"tornado_11.png":
+		{
+			"frame": {"x": 660, "y": 0, "w": 60, "h": 60},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 60, "h": 60},
+			"sourceSize": {"w": 60, "h": 60}
+		}
+	},
+	"meta": {
+		"image": "tornado.png",
+		"format": "RGBA8888",
+		"size": {"w":720,"h":60},
+		"scale": "1"
+	}
+}
