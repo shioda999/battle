@@ -8,8 +8,6 @@ import { Fps } from "./Fps";
 import { Result } from "./Result";
 export class Field extends Scene {
     private releaseFlag: boolean = false
-    private effect
-    private text
     private map: MapTip
     private static result_mode: boolean = false
     private static cur_field_data
