@@ -327,12 +327,12 @@ export class Equipment {
             });
         }
         const style = new PIXI.TextStyle({
-            fontSize: 15,
+            fontSize: 18,
             fill: "white"
         })
         const name = new PIXI.Text(sprite.name, style)
         const style2 = new PIXI.TextStyle({
-            fontSize: 10,
+            fontSize: 13,
             fill: "white"
         })
         const info = new PIXI.Text(str, style2)
