@@ -3,7 +3,7 @@ export class Sound {
     private static sound_list = []
     private static id_to_sound = {}
     private static id_to_group = {}
-    private static group_to_volume = { "bgm": 0, "se": 0 }
+    private static group_to_volume = { "bgm": 0.1, "se": 0.1 }
     public static load(fileName: string, id: string, group: string) {
         if (this.id_to_sound[id]) {
             return

@@ -27,10 +27,10 @@ export class StageSelect extends Scene {
         super()
         this.release = () => {
             this.releaseFlag = true
-            Sound.stop("bgm")
+            Sound.stop("all")
         }
         this.key = Key.GetInstance()
-        Sound.play("bgm", true)
+        Sound.play("stageselect", true)
         this.load_points_data()
         this.set_back_ground()
         this.set_charactors()

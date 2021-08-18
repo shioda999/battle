@@ -26,21 +26,21 @@ export class Villege extends Scene {
         Obj.set_current_map(this.map, true)
         this.release = () => {
             this.releaseFlag = true
-            Sound.stop("bgm")
+            Sound.stop("all")
         }
         this.set_charactors()
 
         const inst = GraphicManager.GetInstance()
-        inst.SetLoadedFunc(() => {
-            this.key = Key.GetInstance()
-            this.loop()
-        })
-        Sound.play("bgm", true)
+        Sound.play("villege", true)
         Talk.init()
         Talk.set_current_mapname("villege")
         Menu.init(this.container)
 
         this.set_home_button()
+        inst.SetLoadedFunc(() => {
+            this.key = Key.GetInstance()
+            this.loop()
+        })
     }
     private set_home_button() {
         const b = new PIXI.Graphics()

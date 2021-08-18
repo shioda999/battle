@@ -22,10 +22,10 @@ export class Field extends Scene {
         this.release = () => {
             this.releaseFlag = true
             Obj.destroy()
-            Sound.stop("bgm")
+            Sound.stop("all")
         }
         this.set_charactors()
-        Sound.play("bgm", true)
+        Sound.play(Field.cur_field_data.bgm, true)
 
         Result.init(this.container, () => Field.return_button_click(), () => Field.next_button_click())
         this.loop()
