@@ -64,6 +64,9 @@ export class SceneManager {
                 clearInterval(handle)
             }
         }, 50)
+
+        window.addEventListener('blur', () => { Sound.pause("all") })
+        window.addEventListener('focus', () => { Sound.restart("all") })
     }
     public static init(container: PIXI.Container) {
         if (!this.instance)

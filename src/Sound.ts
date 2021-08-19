@@ -28,12 +28,6 @@ export class Sound {
         else inst.play()
     }
     public static pause(id: string) {
-        if (!this.id_to_sound[id]) {
-            return
-        }
-        this.id_to_sound[id].pause()
-    }
-    public static stop(id: string) {
         if (id === "all") {
             this.sound_list.forEach(n => n.pause())
         }
@@ -41,6 +35,24 @@ export class Sound {
             return
         }
         this.id_to_sound[id].pause()
+    }
+    public static restart(id: string) {
+        if (id === "all") {
+            this.sound_list.forEach(n => n.resume())
+        }
+        if (!this.id_to_sound[id]) {
+            return
+        }
+        this.id_to_sound[id].resume()
+    }
+    public static stop(id: string) {
+        if (id === "all") {
+            this.sound_list.forEach(n => n.stop())
+        }
+        if (!this.id_to_sound[id]) {
+            return
+        }
+        this.id_to_sound[id].stop()
     }
     public static set_volume(group: string, volume: number) {
         this.group_to_volume[group] = volume
