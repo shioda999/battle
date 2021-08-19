@@ -60,7 +60,7 @@ export class Talk {
     private static mouse_over_sprite_id
     private static current_items_data = ITEM_DATA
     private static focus_frame: PIXI.Graphics
-    private static selecting_item_price: number = 100000
+    private static selecting_item_id: number
     public static init() {
         if (!Talk.data) Talk.data = FileManager.getData("talk/talk")
         this.container = Screen.init().getContainer()
@@ -113,7 +113,7 @@ export class Talk {
     public static next() {
         if (this.graph.alpha < 1.0 || this.buying) return
         ++this.talk_num
-        if (this.current_talk.default.length == this.talk_num) {
+        if (this.current_talk.default.length <= this.talk_num) {
             this.talk_end()
         }
         else this.set_text(this.current_talk.default[this.talk_num])
@@ -136,8 +136,9 @@ export class Talk {
         }
         else if (str == "buy_check") {
             this.graph.removeChildren()
-            this.selecting_item_price = this.current_items_data[data].price
-            const text = new PIXI.Text("こちらは" + this.selecting_item_price + "ゼニーですが、\nよろしいですか？", style)
+            this.selecting_item_id = data
+            const price = this.current_items_data[data].price
+            const text = new PIXI.Text("こちらは" + price + "ゼニーですが、\nよろしいですか？", style)
             text.scale.set(0.5)
             text.zIndex = 1000
             this.graph.addChild(text)
@@ -279,13 +280,23 @@ export class Talk {
         this.set_text("buy_check", i)
     }
     private static buy() {
-        GLOBAL.money -= this.selecting_item_price
+        const id = this.selecting_item_id
+        GLOBAL.money -= this.current_items_data[id].price
         this.updateMoney()
+        this.container.removeChild(this.item_sprites[id])
+        GLOBAL.ITEM.push(this.current_items_data[id])
+        this.current_items_data[id] = { name: "", enchant: [], price: 0 }
     }
     private static decide = (v: number) => {
         if (v == 0) {
-            Talk.buy()
-            Talk.set_text("まいどあり")
+            const id = Talk.selecting_item_id
+            if (GLOBAL.money >= Talk.current_items_data[id].price) {
+                Talk.buy()
+                Talk.set_text("まいどあり")
+            }
+            else {
+                Talk.set_text("金がねえなら話しかけんな。貧乏人")
+            }
             Talk.talk_num = -1
             setTimeout(() => Talk.buying = false, 300)
         }
@@ -318,6 +329,7 @@ export class Talk {
         this.money = null
     }
     private static updateMoney() {
+        this.money.removeChildren()
         const text = new PIXI.Text("所持金：" + GLOBAL.money + "Z", style)
         text.position.set(10, 10)
         text.scale.set(0.5)
