@@ -37,13 +37,13 @@ export class Villege extends Scene {
         Talk.set_current_mapname("villege")
         Menu.init(this.container)
 
-        this.set_home_button()
+        this.set_menu_button()
         inst.SetLoadedFunc(() => {
             this.key = Key.GetInstance()
             this.loop()
         })
     }
-    private set_home_button() {
+    private set_menu_button() {
         const b = new PIXI.Graphics()
         const w = 70, h = 35
         const text = new PIXI.Text("装備変更", new PIXI.TextStyle({
@@ -71,6 +71,7 @@ export class Villege extends Scene {
         this.container.addChild(this.menu_button = b)
         text.anchor.set(0.5)
         b.addChild(text)
+        this.menu_button = b
     }
     private set_charactors() {
         Obj.create_obj(this.container, "player", false, "normal", WIDTH / 2, HEIGHT / 2, {})
@@ -92,6 +93,10 @@ export class Villege extends Scene {
             this.obj_update()
             this.deal_change_Scene()
         }
+        if (Talk.talking) {
+            this.menu_button.visible = false
+        }
+        else this.menu_button.visible = true
     }
     private deal_change_Scene() {
         if (Obj.go_out_flag) {

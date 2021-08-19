@@ -127,6 +127,7 @@ export class MapTip {
         this.sprite.forEach((row) => {
             row.forEach((s) => {
                 if (s) s.destroy()
+                s = null
             })
         })
     }

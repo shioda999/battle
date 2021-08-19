@@ -44,6 +44,7 @@ export namespace GLOBAL {
     export let pause_flag: boolean
     export let FORMATION
     export let ITEM
+    export let money
 }
 namespace SAVEDATA {
     export let FORMATION = [

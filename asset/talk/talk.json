@@ -3,11 +3,8 @@
 		"bukiya": {
 			"default": [
 				"何を買いましょう...",
-				"weapone"
-			],
-			"weapon_list": [
-				"aaa",
-				"bbb"
+				"sell_weapons",
+				"またのご利用お待ちしております。"
 			]
 		},
 		"douguya": {
