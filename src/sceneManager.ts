@@ -6,12 +6,16 @@ import { Fade } from './Fade'
 import { GraphicManager } from './GraphicManager'
 import { FileManager } from './FileManager';
 import { Sound } from './Sound'
-import { GRAPH_FNAME, EFFECT_FNAME, JSON_FNAME, load } from './global'
+import { GRAPH_FNAME, EFFECT_FNAME, JSON_FNAME, load, SOUND_DATA, LOADED, WIDTH, HEIGHT } from './global'
 import { Villege } from "./Villege"
 import { Talk } from "./Talk"
 import { StageSelect } from "./StageSelect"
 import { Field } from "./Field"
 import { Fps } from "./Fps"
+const BAR_LENGTH = 300
+const BAR_HEIGHT = 10
+const BAR_SX = (WIDTH - BAR_LENGTH) / 2
+const BAR_SY = (HEIGHT - BAR_HEIGHT) / 2
 export class SceneManager {
     private key: Key
     private static instance: SceneManager
@@ -19,28 +23,18 @@ export class SceneManager {
     private scene
     private graphic_loaded: boolean = false
     private file_loaded: boolean = false
+    private text
+    private bar
     private constructor(private container: PIXI.Container) {
+        this.loading_view_init()
+        LOADED.set_callback(this.loading_update)
+
         load()
         Scene.SetGotoSceneFunction((v) => this.gotoScene(v), this.exitCurrentScene)
 
         FileManager.loadFiles(JSON_FNAME)
 
-        Sound.load("sound\\bgm.mp3", "bgm", "bgm")
-        Sound.load("sound\\villege.mp3", "villege", "bgm")
-        Sound.load("sound\\stageselect.mp3", "stageselect", "bgm")
-        Sound.load("sound\\dangeon.mp3", "dangeon", "bgm")
-        Sound.load("sound\\dangeon2.mp3", "dangeon2", "bgm")
-        Sound.load("sound\\dangeon3.mp3", "dangeon3", "bgm")
-        Sound.load("sound\\dangeon4.mp3", "dangeon4", "bgm")
-        Sound.load("sound\\dangeon5.mp3", "dangeon5", "bgm")
-        Sound.load("sound\\dangeon6.mp3", "dangeon6", "bgm")
-        Sound.load("sound\\boo.mp3", "boo", "se")
-        Sound.load("sound\\jump.mp3", "jump", "se")
-        Sound.load("sound\\fall.mp3", "fall", "se")
-        Sound.load("sound\\damage.mp3", "damage", "se")
-        Sound.load("sound\\decide.mp3", "decide", "se")
-        Sound.load("sound\\back.mp3", "back", "se")
-        Sound.load("sound\\game_over.mp3", "over", "se")
+        Sound.loadSounds(SOUND_DATA)
 
         const inst = GraphicManager.GetInstance()
         inst.loadGraphics(GRAPH_FNAME)
@@ -95,5 +89,41 @@ export class SceneManager {
                 field: Field
             }[name](this.container)
         })
+    }
+    private loading_view_init() {
+        const style = new PIXI.TextStyle({
+            fill: "#00e1ff",
+            fillGradientType: 1,
+            fillGradientStops: [
+                1,
+                0
+            ],
+            fontFamily: "Arial Black",
+            fontSize: 40,
+            letterSpacing: 5,
+            lineJoin: "round",
+            miterLimit: 1,
+            stroke: "#080042",
+            strokeThickness: 11
+        });
+        this.text = new PIXI.Text('Loading...', style);
+        this.text.anchor.set(0.5)
+        this.text.position.set(WIDTH / 2, HEIGHT / 2.5)
+        this.bar = new PIXI.Graphics()
+        this.bar.lineStyle(2, 0xAAAAAA, 1);
+        this.bar.beginFill(0)
+        this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH, BAR_HEIGHT);
+        this.bar.endFill();
+        this.container.addChild(this.text)
+        this.container.addChild(this.bar)
+    }
+    private loading_update = () => {
+        const loaded_num = LOADED.get_loaded_count()
+        const loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
+            + GRAPH_FNAME.length + EFFECT_FNAME.length
+        this.bar.lineStyle(0)
+        this.bar.beginFill(0x00ff00)
+        this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / loading_num, BAR_HEIGHT)
+        this.bar.endFill();
     }
 }

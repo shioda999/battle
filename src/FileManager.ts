@@ -1,3 +1,4 @@
+import { LOADED } from "./global"
 export class FileManager {
     private static callback: () => any
     private static data = {}
@@ -15,6 +16,7 @@ export class FileManager {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 this.data[id] = JSON.parse(xhr.responseText)
             }
+            LOADED.add_loaded_count()
             this.count--
             if (this.count === 0) {
                 if (this.callback) this.callback()

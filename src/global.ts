@@ -1,5 +1,13 @@
 export const WIDTH = 640
 export const HEIGHT = 480
+export const SOUND_DATA = {
+    "bgm": [
+        "villege", "stageselect", "dangeon", "dangeon2", "dangeon3", "dangeon4", "dangeon5", "dangeon6"
+    ],
+    "se": [
+        "decide", "back"
+    ]
+}
 export const GRAPH_FNAME = [
     "player", "merchant", "zombie", "slime",
     "map", "K", "slash", "face", "tool"
@@ -112,6 +120,20 @@ namespace SAVEDATA {
         }
     ]
     export let id: number
+}
+export namespace LOADED {
+    let _g_loaded_count = 0
+    let _g_callback
+    export function add_loaded_count() {
+        _g_loaded_count++
+        if (_g_callback) _g_callback()
+    }
+    export function get_loaded_count() {
+        return _g_loaded_count
+    }
+    export function set_callback(callback) {
+        _g_callback = callback
+    }
 }
 
 export function save() {

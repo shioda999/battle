@@ -1,4 +1,5 @@
 import * as PIXI from "pixi.js"
+import { LOADED } from './global'
 export class GraphicManager {
     private callback: () => any
     private preloadList: string[] = []
@@ -42,6 +43,7 @@ export class GraphicManager {
             }
             this.loadingList = this.loadingList.filter(n => n !== spriteName)
             this.loadedList.push(spriteName)
+            LOADED.add_loaded_count()
             if (!this.is_loading()) {
                 if (this.callback) this.callback()
                 this.callback = undefined

@@ -1,15 +1,24 @@
 import sound from 'pixi-sound'
+import { LOADED } from './global'
+import { AppLoaderPlugin } from 'pixi.js'
 export class Sound {
     private static sound_list = []
     private static id_to_sound = {}
     private static id_to_group = {}
     private static group_to_volume = { "bgm": 0.1, "se": 0.1 }
+    public static loadSounds(SOUND_DATA) {
+        for (let group in SOUND_DATA) {
+            SOUND_DATA[group].forEach((id) => {
+                this.load("sound\\" + id + ".mp3", id, group)
+            })
+        }
+    }
     public static load(fileName: string, id: string, group: string) {
         if (this.id_to_sound[id]) {
             return
         }
         fileName = "asset/" + fileName
-        const inst = sound.Sound.from({ url: fileName, preload: true })
+        const inst = sound.Sound.from({ url: fileName, preload: true, complete: () => LOADED.add_loaded_count() })
         this.sound_list.push(inst)
         this.id_to_sound[id] = inst
         this.id_to_group[id] = group
