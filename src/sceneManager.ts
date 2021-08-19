@@ -25,6 +25,7 @@ export class SceneManager {
     private file_loaded: boolean = false
     private text
     private bar
+    private prev_time
     private constructor(private container: PIXI.Container) {
         this.loading_view_init()
         LOADED.set_callback(this.loading_update)
@@ -91,6 +92,8 @@ export class SceneManager {
         })
     }
     private loading_view_init() {
+        const date = new Date()
+        this.prev_time = date.getSeconds() * 1000 + date.getMilliseconds()
         const style = new PIXI.TextStyle({
             fill: "#00e1ff",
             fillGradientType: 1,
@@ -118,12 +121,18 @@ export class SceneManager {
         this.container.addChild(this.bar)
     }
     private loading_update = () => {
-        const loaded_num = LOADED.get_loaded_count()
-        const loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
-            + GRAPH_FNAME.length + EFFECT_FNAME.length
-        this.bar.lineStyle(0)
-        this.bar.beginFill(0x00ff00)
-        this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / loading_num, BAR_HEIGHT)
-        this.bar.endFill();
+        const date = new Date()
+        const time = date.getSeconds() * 1000 + date.getMilliseconds()
+        console.log(time, this.prev_time)
+        if (time - this.prev_time > 13) {
+            this.prev_time = time
+            const loaded_num = LOADED.get_loaded_count()
+            const loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
+                + GRAPH_FNAME.length + EFFECT_FNAME.length
+            this.bar.lineStyle(0)
+            this.bar.beginFill(0x00ff00)
+            this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / loading_num, BAR_HEIGHT)
+            this.bar.endFill();
+        }
     }
 }
