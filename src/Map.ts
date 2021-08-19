@@ -123,4 +123,11 @@ export class MapTip {
             }
         }
     }
+    public delete_mapSprites() {
+        this.sprite.forEach((row) => {
+            row.forEach((s) => {
+                if (s) s.destroy()
+            })
+        })
+    }
 }

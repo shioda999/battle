@@ -77,12 +77,12 @@ export class SceneManager {
             if (this.sceneName.length > 0) name = this.sceneName.pop()
         }
         this.sceneName.push(name)
-        if (this.scene) {
-            if (this.scene.release !== undefined) this.scene.release()
-            delete this.scene
-        }
         const fade = new Fade(this.container, () => {
             this.container.removeChildren()
+            if (this.scene) {
+                if (this.scene.release !== undefined) this.scene.release()
+                delete this.scene
+            }
             this.scene = new {
                 title: Title,
                 villege: Villege,

@@ -26,6 +26,7 @@ export class Villege extends Scene {
         Obj.set_current_map(this.map, true)
         this.release = () => {
             this.releaseFlag = true
+            this.map.delete_mapSprites()
             Sound.stop("all")
         }
         this.set_charactors()

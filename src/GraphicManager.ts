@@ -66,11 +66,13 @@ export class GraphicManager {
             console.log(spriteName + " could not load.")
             return undefined
         }
-        let sprite: PIXI.AnimatedSprite
         let textures
         if (!index) textures = this.texture[i]
         else textures = this.texture[i].filter((n, i) => (index.indexOf(i) !== -1))
-        sprite = new PIXI.AnimatedSprite(textures)
+        let sprite
+        if (textures.length == 0) return
+        if (textures.length == 1) sprite = new PIXI.Sprite(textures[0])
+        else sprite = new PIXI.AnimatedSprite(textures)
         sprite.anchor.x = sprite.anchor.y = 0.5
         return sprite
     }

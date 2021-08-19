@@ -11,7 +11,6 @@ export class Scene {
         this.func2 = func2
     }
     public gotoScene(name: SceneType) {
-        if (this.release) this.release()
         Scene.func(name)
     }
     public exitCurrentScene() {

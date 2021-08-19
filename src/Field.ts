@@ -21,6 +21,7 @@ export class Field extends Scene {
         Obj.set_current_map(this.map)
         this.release = () => {
             this.releaseFlag = true
+            this.map.delete_mapSprites()
             Obj.destroy()
             Sound.stop("all")
         }
