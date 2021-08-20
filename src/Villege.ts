@@ -32,6 +32,7 @@ export class Villege extends Scene {
         this.set_charactors()
 
         const inst = GraphicManager.GetInstance()
+        Sound.stop("villege")
         Sound.play("villege", true)
         Talk.init()
         Talk.set_current_mapname("villege")

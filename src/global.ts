@@ -10,7 +10,7 @@ export const SOUND_DATA = {
 }
 export const GRAPH_FNAME = [
     "player", "merchant", "zombie", "slime",
-    "map", "K", "slash", "face", "tool"
+    "map", "K", "face", "tool"
 ]
 export const EFFECT_FNAME = [
     "slash", "hit", "explosion", "fire", "tornado", "thunder", "ice", "bullet"
@@ -135,8 +135,9 @@ namespace SAVEDATA {
 export namespace LOADED {
     let _g_loaded_count = 0
     let _g_callback
-    export function add_loaded_count() {
+    export function add_loaded_count(id) {
         _g_loaded_count++
+        console.log(id, _g_loaded_count)
         if (_g_callback) _g_callback()
     }
     export function get_loaded_count() {

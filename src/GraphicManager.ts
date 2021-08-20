@@ -43,7 +43,7 @@ export class GraphicManager {
             }
             this.loadingList = this.loadingList.filter(n => n !== spriteName)
             this.loadedList.push(spriteName)
-            LOADED.add_loaded_count()
+            LOADED.add_loaded_count(spriteName)
             if (!this.is_loading()) {
                 if (this.callback) this.callback()
                 this.callback = undefined

@@ -18,7 +18,7 @@ export class Sound {
             return
         }
         fileName = "asset/" + fileName
-        const inst = sound.Sound.from({ url: fileName, preload: true, complete: () => LOADED.add_loaded_count() })
+        const inst = sound.Sound.from({ url: fileName, preload: true, loaded: () => LOADED.add_loaded_count(id) })
         this.sound_list.push(inst)
         this.id_to_sound[id] = inst
         this.id_to_group[id] = group

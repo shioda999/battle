@@ -21,11 +21,11 @@ export class SceneManager {
     private static instance: SceneManager
     private sceneName: SceneType[] = []
     private scene
-    private graphic_loaded: boolean = false
-    private file_loaded: boolean = false
     private text
     private bar
     private prev_time
+    readonly loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
+        + GRAPH_FNAME.length + EFFECT_FNAME.length
     private constructor(private container: PIXI.Container) {
         this.loading_view_init()
         LOADED.set_callback(this.loading_update)
@@ -50,11 +50,8 @@ export class SceneManager {
         this.key.key_register({ code: ["ArrowRight", "KeyD", "PadRight"], name: "right" })
         this.key.key_register({ code: ["r"], name: "r" })
 
-        inst.SetLoadedFunc(() => this.graphic_loaded = true)
-        FileManager.SetLoadedFunc(() => this.file_loaded = true)
-
         const handle = setInterval(() => {
-            if (this.graphic_loaded && this.file_loaded) {
+            if (LOADED.get_loaded_count() == this.loading_num) {
                 this.gotoScene("villege")
                 clearInterval(handle)
             }
@@ -123,15 +120,12 @@ export class SceneManager {
     private loading_update = () => {
         const date = new Date()
         const time = date.getSeconds() * 1000 + date.getMilliseconds()
-        console.log(time, this.prev_time)
         if (time - this.prev_time > 13) {
             this.prev_time = time
             const loaded_num = LOADED.get_loaded_count()
-            const loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
-                + GRAPH_FNAME.length + EFFECT_FNAME.length
             this.bar.lineStyle(0)
             this.bar.beginFill(0x00ff00)
-            this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / loading_num, BAR_HEIGHT)
+            this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / this.loading_num, BAR_HEIGHT)
             this.bar.endFill();
         }
     }

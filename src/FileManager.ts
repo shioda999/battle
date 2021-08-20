@@ -11,16 +11,15 @@ export class FileManager {
         const xhr = new XMLHttpRequest();
         this.count++
         xhr.open('GET', "asset/" + id + ".json", true);
-        console.log(id + ".json is loading...")
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 this.data[id] = JSON.parse(xhr.responseText)
-            }
-            LOADED.add_loaded_count()
-            this.count--
-            if (this.count === 0) {
-                if (this.callback) this.callback()
-                this.callback = undefined
+                LOADED.add_loaded_count(id)
+                this.count--
+                if (this.count === 0) {
+                    if (this.callback) this.callback()
+                    this.callback = undefined
+                }
             }
         }
         setTimeout(() => xhr.send(null), 30)
