@@ -1,5 +1,6 @@
 import * as PIXI from "pixi.js"
 import { LOADED } from './global'
+import { FileManager } from './FileManager';
 export class GraphicManager {
     private callback: () => any
     private preloadList: string[] = []
@@ -7,6 +8,8 @@ export class GraphicManager {
     private loadingList: string[] = []
     private texture: PIXI.Texture[][] = []
     private loader: PIXI.Loader
+    private frames_num: any
+    private frames_json_loaded: boolean = false
     private static instance: GraphicManager
     public static GetInstance() {
         if (!this.instance) this.instance = new GraphicManager()
@@ -14,6 +17,11 @@ export class GraphicManager {
     }
     private constructor() {
         this.loader = PIXI.Loader.shared
+        FileManager.loadFile("graphic\\frame_num", () => {
+            this.frames_json_loaded = true
+            this.frames_num = FileManager.getData("graphic\\frame_num")
+            this.load()
+        })
     }
     public loadGraphics(spriteName: string[]) {
         spriteName.forEach(n => this.loadGraphic(n))
@@ -25,7 +33,7 @@ export class GraphicManager {
         }
     }
     private load() {
-        if (this.loader.loading || this.preloadList.length == 0) return
+        if (this.frames_json_loaded == false || this.loader.loading || this.preloadList.length == 0) return
         const spriteName = this.preloadList.pop()
         const jsonFileName = 'asset/graphic/' + spriteName + '_sprite.json'
         this.loadingList.push(spriteName)
@@ -35,11 +43,10 @@ export class GraphicManager {
             const k = this.texture.length - 1
             let count: number = 0
 
-            while (1) {
-                texture = PIXI.Texture.from(spriteName + '_' + count + '.png')
+            for (let i = 0; i < this.frames_num[spriteName]; i++) {
+                texture = PIXI.Texture.from(spriteName + '_' + i + '.png')
                 if (!texture.valid) break
                 this.texture[k].push(texture)
-                count++
             }
             this.loadingList = this.loadingList.filter(n => n !== spriteName)
             this.loadedList.push(spriteName)

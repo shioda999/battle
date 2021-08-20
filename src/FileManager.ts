@@ -7,7 +7,7 @@ export class FileManager {
     public static loadFiles(id: string[]) {
         id.forEach(n => this.loadFile(n))
     }
-    private static loadFile(id: string) {
+    public static loadFile(id: string, loaded?) {
         const xhr = new XMLHttpRequest();
         this.count++
         xhr.open('GET', "asset/" + id + ".json", true);
@@ -16,6 +16,9 @@ export class FileManager {
                 this.data[id] = JSON.parse(xhr.responseText)
                 LOADED.add_loaded_count(id)
                 this.count--
+                if (loaded) {
+                    loaded()
+                }
                 if (this.count === 0) {
                     if (this.callback) this.callback()
                     this.callback = undefined

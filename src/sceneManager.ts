@@ -25,7 +25,7 @@ export class SceneManager {
     private bar
     private prev_time
     readonly loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
-        + GRAPH_FNAME.length + EFFECT_FNAME.length
+        + GRAPH_FNAME.length + EFFECT_FNAME.length + 1
     private constructor(private container: PIXI.Container) {
         this.loading_view_init()
         LOADED.set_callback(this.loading_update)
