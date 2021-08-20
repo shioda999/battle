@@ -48,8 +48,8 @@ export class Effect {
                 this.x += Math.cos(this.angle) * 5
                 this.y += Math.sin(this.angle) * 5
                 this.sprite.position.set(this.x, this.y)
-                this.sprite.gotoAndStop(Math.floor(this.count / 3))
-                if (Math.floor(this.count / 3) >= this.sprite.textures.length) this.remove()
+                this.sprite.gotoAndStop(Math.floor(this.count / 5))
+                if (Math.floor(this.count / 5) >= this.sprite.textures.length) this.remove()
                 break
             case "bullet":
                 this.x += Math.cos(this.angle) * 10

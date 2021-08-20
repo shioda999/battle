@@ -39,15 +39,16 @@ export class GraphicManager {
         this.loadingList.push(spriteName)
         this.loader.add(jsonFileName).load(() => {
             let texture: PIXI.Texture
-            this.texture.push([])
+            let textures = []
             const k = this.texture.length - 1
             let count: number = 0
 
             for (let i = 0; i < this.frames_num[spriteName]; i++) {
                 texture = PIXI.Texture.from(spriteName + '_' + i + '.png')
                 if (!texture.valid) break
-                this.texture[k].push(texture)
+                textures.push(texture)
             }
+            this.texture.push(textures)
             this.loadingList = this.loadingList.filter(n => n !== spriteName)
             this.loadedList.push(spriteName)
             LOADED.add_loaded_count(spriteName)
@@ -70,16 +71,18 @@ export class GraphicManager {
     public GetSprite(spriteName: string, index?: number[]) {
         const i = this.loadedList.indexOf(spriteName)
         if (i === -1) {
-            console.log(spriteName + " could not load.")
+            console.log(spriteName + " : index error")
             return undefined
         }
         let textures
         if (!index) textures = this.texture[i]
         else textures = this.texture[i].filter((n, i) => (index.indexOf(i) !== -1))
         let sprite
-        if (textures.length == 0) return
-        if (textures.length == 1) sprite = new PIXI.Sprite(textures[0])
-        else sprite = new PIXI.AnimatedSprite(textures)
+        if (textures.length == 0) {
+            console.log(spriteName + " : load error")
+            return
+        }
+        sprite = new PIXI.AnimatedSprite(textures)
         sprite.anchor.x = sprite.anchor.y = 0.5
         return sprite
     }
