@@ -39,10 +39,8 @@ export class Villege extends Scene {
         Menu.init(this.container)
 
         this.set_menu_button()
-        inst.SetLoadedFunc(() => {
-            this.key = Key.GetInstance()
-            this.loop()
-        })
+        this.key = Key.GetInstance()
+        this.loop()
     }
     private set_menu_button() {
         const b = new PIXI.Graphics()

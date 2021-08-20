@@ -6,6 +6,7 @@ import { Obj } from "./Obj";
 import { MapTip } from "./Map"
 import { Fps } from "./Fps";
 import { Result } from "./Result";
+import { GraphicManager } from "./GraphicManager";
 export class Field extends Scene {
     private releaseFlag: boolean = false
     private map: MapTip
@@ -29,7 +30,11 @@ export class Field extends Scene {
         Sound.play(Field.cur_field_data.bgm, true)
 
         Result.init(this.container, () => Field.return_button_click(), () => Field.next_button_click())
-        this.loop()
+
+        const inst = GraphicManager.GetInstance()
+        inst.SetLoadedFunc(() => {
+            this.loop()
+        })
     }
     private loop = () => {
         if (this.releaseFlag) return
