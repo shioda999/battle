@@ -12,7 +12,7 @@ export const GRAPH_FNAME = [
     "player", "merchant", "map", "K", "face", "tool"
 ]
 export const GRAPH_FNAME2 = [
-    "zombie", "slime", "docro", "fairy", "lamia", "succubus", "witch"
+    "zombie", "slime", "docro", "fairy", "lamia", "succubus", "witch", "golem", "fireman"
 ]
 export const EFFECT_FNAME = [
     "slash", "hit", "explosion", "fire", "tornado", "thunder", "ice", "bullet"
@@ -40,6 +40,18 @@ export const ENEMY_STATUS = {
     },
     fairy: {
         speed: 2, Lv: 1, attack: "tornado", hp: 800,
+    },
+    docro: {
+        speed: 0.3, Lv: 1, attack: "tackle", hp: 500, frame_freq: 24
+    },
+    lamia: {
+        speed: 5, Lv: 1, attack: "punch", hp: 5000
+    },
+    witch: {
+        speed: 0.5, Lv: 1, attack: "thunder", hp: 1000
+    },
+    golem: {
+        speed: 0.1, Lv: 1, attack: "tackle", hp: 8000, frame_freq: 30, no_knockback: true
     }
 }
 export const ITEM_NAME = [

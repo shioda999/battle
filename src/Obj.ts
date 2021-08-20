@@ -6,7 +6,6 @@ import { Talk } from './Talk'
 import { Effect } from './Effect'
 import { HEIGHT, WIDTH } from './global'
 import { DamageText } from './DamageText'
-const FREQ = 12
 const DY = [1, 0, 0, -1]
 const DX = [0, -1, 1, 0]
 const KNOCKBACK_TIME = 10
@@ -34,6 +33,7 @@ export class Obj {
     private w = 24
     private h = 26
     private hp: number
+    private frame_freq: number = 12
     private static able_to_out: boolean = false
     private constructor(private container, private name: string, private enemy_flag: boolean,
         private state: string, private x: number, private y: number,
@@ -48,6 +48,7 @@ export class Obj {
         this.sprite.zIndex = 2 + this.y
         this.hp = data.hp
         if (data.no_knockback) this.knockback_flag = false
+        if (data.frame_freq) this.frame_freq = data.frame_freq
         if (enemy_flag) this.p = 2
     }
     public static set_current_map(map: MapTip, able_to_out = false) {
@@ -134,11 +135,11 @@ export class Obj {
         let angle = Math.atan2(dy, dx)
         switch (this.data.attack) {
             case "slash":
-                return (Math.abs(dx) <= 45 && Math.abs(dy) <= 32)
+                return (dx * dx + dy * dy <= 50 * 50)
             case "tackle":
-                return (Math.abs(dx) <= 45 && Math.abs(dy) <= 32)
+                return (dx * dx + dy * dy <= 50 * 50)
             case "punch":
-                return (Math.abs(dx) <= 45 && Math.abs(dy) <= 32)
+                return (dx * dx + dy * dy <= 45 * 45)
             case "explosion":
             case "fire":
             case "thunder":
@@ -292,7 +293,7 @@ export class Obj {
         if (dx < 0) this.turn = 1
         if (dx > 0) this.turn = 2
         this.count = 0
-        this.frame = this.turn * 4 + this.count / FREQ;
+        this.frame = this.turn * 4 + this.count / this.frame_freq;
         this.sprite.gotoAndStop(this.frame)
     }
     private Org(v: number, keta) {
@@ -305,7 +306,7 @@ export class Obj {
         const r = Math.sqrt(dx * dx + dy * dy)
         if (dx == 0 && dy == 0) {
             this.count = 0
-            this.frame = this.turn * 4 + this.count / FREQ;
+            this.frame = this.turn * 4 + this.count / this.frame_freq;
             this.sprite.gotoAndStop(this.frame)
             Obj.map.set_p(this.x + a, this.y + b, this.w, this.h, this.p)
             return
@@ -344,11 +345,11 @@ export class Obj {
                 if (dx > 0) this.turn = 2
             }
             this.count++
-            this.count %= FREQ * 4
+            this.count %= this.frame_freq * 4
             this.update_pos()
         }
         else this.count = 0
-        this.frame = this.turn * 4 + this.count / FREQ;
+        this.frame = this.turn * 4 + this.count / this.frame_freq;
         this.sprite.gotoAndStop(this.frame)
         Obj.map.set_p(this.x + a, this.y + b, this.w, this.h, this.p)
     }
