@@ -25,7 +25,7 @@ export class SceneManager {
     private bar
     private prev_time
     readonly loading_num = JSON_FNAME.length + SOUND_DATA.bgm.length + SOUND_DATA.se.length
-        + GRAPH_FNAME.length + EFFECT_FNAME.length + 1
+        + GRAPH_FNAME.length + 1
     private constructor(private container: PIXI.Container) {
         this.loading_view_init()
         LOADED.set_callback(this.loading_update)
@@ -39,7 +39,6 @@ export class SceneManager {
 
         const inst = GraphicManager.GetInstance()
         inst.loadGraphics(GRAPH_FNAME)
-        inst.loadGraphics(EFFECT_FNAME)
 
         this.key = Key.GetInstance()
         this.key.key_register({ code: ["Enter", "PadA"], name: "decide" })
@@ -53,6 +52,7 @@ export class SceneManager {
         const handle = setInterval(() => {
             if (LOADED.get_loaded_count() == this.loading_num) {
                 this.gotoScene("villege")
+                inst.loadGraphics(EFFECT_FNAME)
                 clearInterval(handle)
             }
         }, 50)
@@ -125,7 +125,9 @@ export class SceneManager {
             const loaded_num = LOADED.get_loaded_count()
             this.bar.lineStyle(0)
             this.bar.beginFill(0x00ff00)
-            this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * loaded_num / this.loading_num, BAR_HEIGHT)
+            let k = loaded_num / this.loading_num
+            if (k > 1.0) k = 1.0
+            this.bar.drawRect(BAR_SX, BAR_SY, BAR_LENGTH * k, BAR_HEIGHT)
             this.bar.endFill();
         }
     }

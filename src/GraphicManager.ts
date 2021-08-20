@@ -34,7 +34,7 @@ export class GraphicManager {
     }
     private load() {
         if (this.frames_json_loaded == false || this.loader.loading || this.preloadList.length == 0) return
-        const spriteName = this.preloadList.pop()
+        const spriteName = this.preloadList.shift()
         const jsonFileName = 'asset/graphic/' + spriteName + '_sprite.json'
         this.loadingList.push(spriteName)
         this.loader.add(jsonFileName).load(() => {
