@@ -45,6 +45,16 @@ export namespace GLOBAL {
     export let FORMATION
     export let ITEM
     export let money = 300
+    export let ITEM_NUM = 36
+    export function add_item(item_data) {
+        console.log(ITEM)
+        for (let i = 0; i < ITEM_NUM; i++) {
+            if (!ITEM[i].name) {
+                ITEM[i] = item_data
+                return
+            }
+        }
+    }
 }
 namespace SAVEDATA {
     export let FORMATION = [

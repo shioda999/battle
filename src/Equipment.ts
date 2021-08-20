@@ -62,6 +62,7 @@ export class Equipment {
     public static show(id: number) {
         this.container.addChild(this.equip)
         this.disp_player_info(id)
+        this.set_item()
     }
     private static create_box() {
         const w = WIDTH * 0.9, h = HEIGHT * 0.7
@@ -276,15 +277,19 @@ export class Equipment {
         }
         this.set_item()
     }
-    private static set_item() {
+    public static set_item() {
         const graph = GraphicManager.GetInstance()
         GLOBAL.ITEM.forEach((n, i) => {
             if (!n.name) return
             const sprite = this.get_item_sprite(n.name, i)
+            if (!sprite) return
             this.item_tab[Math.floor(i / 36)].addChild(sprite)
             const x = this.item_boxes[i].x
             const y = this.item_boxes[i].y
             sprite.position.set(x, y)
+            if (this.item_sprites[i]) {
+                this.item_tab[Math.floor(i / 36)].removeChild(this.item_sprites[i])
+            }
             this.item_sprites[i] = sprite
         })
     }

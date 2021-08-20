@@ -31,6 +31,7 @@ export class Sound {
         inst.volume = this.group_to_volume[this.id_to_group[id]]
         if (loop) {
             inst.play().on('end', () => {
+                console.log("loop")
                 Sound.play(id, loop)
             })
         }
@@ -40,19 +41,17 @@ export class Sound {
         if (id === "all") {
             this.sound_list.forEach(n => n.pause())
         }
-        if (!this.id_to_sound[id]) {
-            return
+        else if (this.id_to_sound[id]) {
+            this.id_to_sound[id].pause()
         }
-        this.id_to_sound[id].pause()
     }
     public static restart(id: string) {
         if (id === "all") {
             this.sound_list.forEach(n => n.resume())
         }
-        if (!this.id_to_sound[id]) {
-            return
+        else if (this.id_to_sound[id]) {
+            this.id_to_sound[id].resume()
         }
-        this.id_to_sound[id].resume()
     }
     public static stop(id: string) {
         if (id === "all") {

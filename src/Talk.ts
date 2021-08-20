@@ -283,8 +283,8 @@ export class Talk {
         const id = this.selecting_item_id
         GLOBAL.money -= this.current_items_data[id].price
         this.updateMoney()
-        this.container.removeChild(this.item_sprites[id])
-        GLOBAL.ITEM.push(this.current_items_data[id])
+        this.item_tab.removeChild(this.item_sprites[id])
+        GLOBAL.add_item(this.current_items_data[id])
         this.current_items_data[id] = { name: "", enchant: [], price: 0 }
     }
     private static decide = (v: number) => {
