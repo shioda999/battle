@@ -45,11 +45,11 @@ export class Effect {
         this.count++
         switch (this.name) {
             case "tornado":
-                this.x += Math.cos(this.angle) * 5
-                this.y += Math.sin(this.angle) * 5
+                this.x += Math.cos(this.angle) * 3
+                this.y += Math.sin(this.angle) * 3
                 this.sprite.position.set(this.x, this.y)
-                this.sprite.gotoAndStop(Math.floor(this.count / 5))
-                if (Math.floor(this.count / 5) >= this.sprite.textures.length) this.remove()
+                this.sprite.gotoAndStop(Math.floor(this.count / 8))
+                if (Math.floor(this.count / 8) >= this.sprite.textures.length) this.remove()
                 break
             case "bullet":
                 this.x += Math.cos(this.angle) * 10
@@ -95,8 +95,8 @@ export class Effect {
             case "tornado":
                 if (this.count % 2 == 0 && dx * dx + dy * dy <= 50 * 50) {
                     dam[0] += 5
-                    dam[1] += Math.cos(this.angle) * 3
-                    dam[2] += Math.sin(this.angle) * 3
+                    dam[1] += Math.cos(this.angle)
+                    dam[2] += Math.sin(this.angle)
                 }
                 break
             case "bullet":

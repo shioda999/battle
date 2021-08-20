@@ -39,7 +39,7 @@ export const ENEMY_STATUS = {
         speed: 1, Lv: 1, attack: "tackle", hp: 1000,
     },
     fairy: {
-        speed: 2, Lv: 1, attack: "ice", hp: 800,
+        speed: 2, Lv: 1, attack: "tornado", hp: 800,
     }
 }
 export const ITEM_NAME = [
