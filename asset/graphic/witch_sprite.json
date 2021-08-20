@@ -1,0 +1,138 @@
+{
+	"frames": {
+		"witch_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_1.png":
+		{
+			"frame": {"x": 32, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_2.png":
+		{
+			"frame": {"x": 64, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_3.png":
+		{
+			"frame": {"x": 96, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_4.png":
+		{
+			"frame": {"x": 0, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_5.png":
+		{
+			"frame": {"x": 32, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_6.png":
+		{
+			"frame": {"x": 64, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_7.png":
+		{
+			"frame": {"x": 96, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_8.png":
+		{
+			"frame": {"x": 0, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_9.png":
+		{
+			"frame": {"x": 32, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_10.png":
+		{
+			"frame": {"x": 64, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_11.png":
+		{
+			"frame": {"x": 96, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_12.png":
+		{
+			"frame": {"x": 0, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_13.png":
+		{
+			"frame": {"x": 32, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_14.png":
+		{
+			"frame": {"x": 64, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"witch_15.png":
+		{
+			"frame": {"x": 96, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		}
+	},
+	"meta": {
+		"image": "witch.png",
+		"format": "RGBA8888",
+		"size": {"w":128,"h":192},
+		"scale": "1"
+	}
+}

@@ -2,6 +2,7 @@ import sound from 'pixi-sound'
 import { LOADED } from './global'
 import { AppLoaderPlugin } from 'pixi.js'
 export class Sound {
+    private static all_paused = false
     private static sound_list = []
     private static id_to_sound = {}
     private static id_to_group = {}
@@ -39,6 +40,7 @@ export class Sound {
     }
     public static pause(id: string) {
         if (id === "all") {
+            this.all_paused = true
             this.sound_list.forEach(n => n.pause())
         }
         else if (this.id_to_sound[id]) {
@@ -47,7 +49,10 @@ export class Sound {
     }
     public static restart(id: string) {
         if (id === "all") {
-            this.sound_list.forEach(n => n.resume())
+            if (this.all_paused) {
+                this.all_paused = false
+                this.sound_list.forEach(n => n.resume())
+            }
         }
         else if (this.id_to_sound[id]) {
             this.id_to_sound[id].resume()

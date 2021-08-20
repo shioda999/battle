@@ -9,8 +9,10 @@ export const SOUND_DATA = {
     ]
 }
 export const GRAPH_FNAME = [
-    "player", "merchant", "zombie", "slime",
-    "map", "K", "face", "tool"
+    "player", "merchant", "map", "K", "face", "tool"
+]
+export const GRAPH_FNAME2 = [
+    "zombie", "slime", "docro", "fairy", "lamia", "succubus", "witch"
 ]
 export const EFFECT_FNAME = [
     "slash", "hit", "explosion", "fire", "tornado", "thunder", "ice", "bullet"

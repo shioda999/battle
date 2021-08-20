@@ -6,7 +6,7 @@ import { Fade } from './Fade'
 import { GraphicManager } from './GraphicManager'
 import { FileManager } from './FileManager';
 import { Sound } from './Sound'
-import { GRAPH_FNAME, EFFECT_FNAME, JSON_FNAME, load, SOUND_DATA, LOADED, WIDTH, HEIGHT } from './global'
+import { GRAPH_FNAME, EFFECT_FNAME, JSON_FNAME, load, SOUND_DATA, LOADED, WIDTH, HEIGHT, GRAPH_FNAME2 } from './global'
 import { Villege } from "./Villege"
 import { Talk } from "./Talk"
 import { StageSelect } from "./StageSelect"
@@ -53,6 +53,7 @@ export class SceneManager {
             if (LOADED.get_loaded_count() == this.loading_num) {
                 this.gotoScene("villege")
                 inst.loadGraphics(EFFECT_FNAME)
+                inst.loadGraphics(GRAPH_FNAME2)
                 clearInterval(handle)
             }
         }, 50)

@@ -1,0 +1,138 @@
+{
+	"frames": {
+		"succubus_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_1.png":
+		{
+			"frame": {"x": 32, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_2.png":
+		{
+			"frame": {"x": 64, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_3.png":
+		{
+			"frame": {"x": 96, "y": 0, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_4.png":
+		{
+			"frame": {"x": 0, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_5.png":
+		{
+			"frame": {"x": 32, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_6.png":
+		{
+			"frame": {"x": 64, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_7.png":
+		{
+			"frame": {"x": 96, "y": 48, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_8.png":
+		{
+			"frame": {"x": 0, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_9.png":
+		{
+			"frame": {"x": 32, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_10.png":
+		{
+			"frame": {"x": 64, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_11.png":
+		{
+			"frame": {"x": 96, "y": 96, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_12.png":
+		{
+			"frame": {"x": 0, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_13.png":
+		{
+			"frame": {"x": 32, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_14.png":
+		{
+			"frame": {"x": 64, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		},
+		"succubus_15.png":
+		{
+			"frame": {"x": 96, "y": 144, "w": 32, "h": 48},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 32, "h": 48},
+			"sourceSize": {"w": 32, "h": 48}
+		}
+	},
+	"meta": {
+		"image": "succubus.png",
+		"format": "RGBA8888",
+		"size": {"w":128,"h":192},
+		"scale": "1"
+	}
+}
