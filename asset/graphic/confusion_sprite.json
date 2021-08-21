@@ -1,0 +1,82 @@
+{
+	"frames": {
+		"confusion_0.png":
+		{
+			"frame": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_1.png":
+		{
+			"frame": {"x": 120, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_2.png":
+		{
+			"frame": {"x": 240, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_3.png":
+		{
+			"frame": {"x": 360, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_4.png":
+		{
+			"frame": {"x": 480, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_5.png":
+		{
+			"frame": {"x": 600, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_6.png":
+		{
+			"frame": {"x": 720, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_7.png":
+		{
+			"frame": {"x": 840, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		},
+		"confusion_8.png":
+		{
+			"frame": {"x": 960, "y": 0, "w": 120, "h": 120},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x": 0, "y": 0, "w": 120, "h": 120},
+			"sourceSize": {"w": 120, "h": 120}
+		}
+	},
+	"meta": {
+		"image": "confusion.png",
+		"format": "RGBA8888",
+		"size": {"w":1080,"h":120},
+		"scale": "1"
+	}
+}

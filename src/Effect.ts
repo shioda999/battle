@@ -70,7 +70,6 @@ export class Effect {
         Effect.effect_list.forEach(n => n.update())
     }
     public static check_collision(x: number, y: number, enemy_flag: boolean, dam) {
-        dam[0] = dam[1] = dam[2] = 0
         Effect.effect_list.forEach(n => n.collision(x, y, enemy_flag, dam))
     }
     public collision(x: number, y: number, enemy_flag: boolean, dam) {
@@ -78,31 +77,36 @@ export class Effect {
         if (enemy_flag === this.enemy_flag) return 0
         switch (this.name) {
             case "explosion":
-                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam[0] += 50
+                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam.damage += 50
                 break
             case "fire":
-                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam[0] += 30
+                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam.damage += 30
                 break
             case "ice":
-                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam[0] += 30
+                if (this.count == 2 && dx * dx + dy * dy <= 50 * 50) dam.damage += 30
                 break
             case "thunder":
                 if (dx * dx + dy * dy <= 60 * 60) {
-                    if (this.count == 1) dam[0] += 60
-                    if (this.count == 6) dam[1] = 0.001
+                    if (this.count == 1) dam.damage += 60
+                    if (this.count == 6) dam.knockback[0] = 0.001
                 }
                 break
             case "tornado":
                 if (this.count % 2 == 0 && dx * dx + dy * dy <= 50 * 50) {
-                    dam[0] += 5
-                    dam[1] += Math.cos(this.angle)
-                    dam[2] += Math.sin(this.angle)
+                    dam.damage += 5
+                    dam.knockback[0] += Math.cos(this.angle)
+                    dam.knockback[1] += Math.sin(this.angle)
                 }
                 break
             case "bullet":
                 if (this.count % 2 == 0 && dx * dx + dy * dy <= 10 * 10) {
-                    dam[0] += 5
+                    dam.damage += 5
                     this.remove()
+                }
+                break
+            case "confusion":
+                if (this.count == 4 && dx * dx + dy * dy <= 10 * 10) {
+                    dam.confusion = true
                 }
                 break
         }

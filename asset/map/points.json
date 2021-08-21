@@ -19,8 +19,8 @@
                 "p": 1,
                 "enemys": [
                     {
-                        "name": "docro",
-                        "num": "36"
+                        "name": "slime",
+                        "num": "1,2,3,4"
                     }
                 ]
             }
@@ -39,7 +39,7 @@
                 "enemys": [
                     {
                         "name": "slime",
-                        "num": "3,5,7"
+                        "num": "5,7,8"
                     }
                 ]
             },
@@ -51,7 +51,7 @@
                         "num": "0,3"
                     },
                     {
-                        "name": "zombie",
+                        "name": "docro",
                         "num": "1,2,3"
                     }
                 ]
@@ -63,6 +63,31 @@
         "pos": [
             216,
             143
+        ],
+        "bgm": "dangeon4",
+        "enemy_pattern": [
+            {
+                "p": 0.7,
+                "enemys": [
+                    {
+                        "name": "docro",
+                        "num": "9, 13, 17"
+                    }
+                ]
+            },
+            {
+                "p": 0.3,
+                "enemys": [
+                    {
+                        "name": "docro",
+                        "num": "4, 9"
+                    },
+                    {
+                        "name": "zombie",
+                        "num": "5"
+                    }
+                ]
+            }
         ]
     },
     {
@@ -70,6 +95,31 @@
         "pos": [
             240,
             200
+        ],
+        "bgm": "dangeon5",
+        "enemy_pattern": [
+            {
+                "p": 0.5,
+                "enemys": [
+                    {
+                        "name": "lamia",
+                        "num": "3, 4, 5"
+                    }
+                ]
+            },
+            {
+                "p": 0.5,
+                "enemys": [
+                    {
+                        "name": "fireman",
+                        "num": "2,3"
+                    },
+                    {
+                        "name": "fairy",
+                        "num": "0,1"
+                    }
+                ]
+            }
         ]
     },
     {
@@ -77,6 +127,36 @@
         "pos": [
             248,
             155
+        ],
+        "bgm": "dangeon6",
+        "enemy_pattern": [
+            {
+                "p": 0.2,
+                "enemys": [
+                    {
+                        "name": "lamia",
+                        "num": "6,7,8"
+                    }
+                ]
+            },
+            {
+                "p": 0.3,
+                "enemys": [
+                    {
+                        "name": "golem",
+                        "num": "1"
+                    }
+                ]
+            },
+            {
+                "p": 0.5,
+                "enemys": [
+                    {
+                        "name": "succubus",
+                        "num": "1,2,3"
+                    }
+                ]
+            }
         ]
     },
     {
@@ -84,6 +164,18 @@
         "pos": [
             239,
             104
+        ],
+        "bgm": "dangeon6",
+        "enemy_pattern": [
+            {
+                "p": 1,
+                "enemys": [
+                    {
+                        "name": "witch",
+                        "num": "5"
+                    }
+                ]
+            }
         ]
     },
     {

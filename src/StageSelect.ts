@@ -8,7 +8,7 @@ import { Obj } from "./Obj";
 import { MapTip } from "./Map"
 import { FileManager } from "./FileManager";
 import { Field } from "./Field";
-const access_num = 3
+const access_num = 8
 const MOVE_TIME = 50
 export class StageSelect extends Scene {
     private player: PIXI.AnimatedSprite

@@ -15,7 +15,7 @@ export const GRAPH_FNAME2 = [
     "zombie", "slime", "docro", "fairy", "lamia", "succubus", "witch", "golem", "fireman"
 ]
 export const EFFECT_FNAME = [
-    "slash", "hit", "explosion", "fire", "tornado", "thunder", "ice", "bullet"
+    "slash", "hit", "explosion", "fire", "tornado", "thunder", "ice", "bullet", "confusion", "hatena"
 ]
 export const SKILL_JP = {
     "slash": "スラッシュ",
@@ -45,13 +45,19 @@ export const ENEMY_STATUS = {
         speed: 0.3, Lv: 1, attack: "tackle", hp: 500, frame_freq: 24
     },
     lamia: {
-        speed: 5, Lv: 1, attack: "punch", hp: 5000
+        speed: 0.8, Lv: 1, attack: "strong_tackle", hp: 1200
     },
     witch: {
         speed: 0.5, Lv: 1, attack: "thunder", hp: 1000
     },
     golem: {
         speed: 0.1, Lv: 1, attack: "tackle", hp: 8000, frame_freq: 30, no_knockback: true
+    },
+    succubus: {
+        speed: 1.5, Lv: 1, attack: "confusion", hp: 1500, frame_freq: 18
+    },
+    fireman: {
+        speed: 3, Lv: 1, attack: "fire", hp: 1500, frame_freq: 18
     }
 }
 export const ITEM_NAME = [
@@ -80,7 +86,7 @@ namespace SAVEDATA {
             x: 9,
             y: 4,
             data: {
-                speed: 2, Lv: 1, attack: "slash", hp: 100,
+                speed: 2, Lv: 1, attack: "slash", hp: 400,
                 equip: [
                     {
                         name: "sword",
@@ -95,7 +101,7 @@ namespace SAVEDATA {
             x: 9,
             y: 5,
             data: {
-                speed: 2, Lv: 1, attack: "slash", hp: 100,
+                speed: 2, Lv: 1, attack: "slash", hp: 500,
                 equip: [
                     {
                         name: "sword",
@@ -110,7 +116,7 @@ namespace SAVEDATA {
             x: 9,
             y: 6,
             data: {
-                speed: 2, Lv: 3, attack: "slash", hp: 100,
+                speed: 2, Lv: 3, attack: "slash", hp: 700,
                 equip: [
                     {
                         name: "sword",

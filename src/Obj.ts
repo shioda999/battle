@@ -24,6 +24,7 @@ export class Obj {
     private knocking_dx: number = 0
     private knocking_dy: number = 0
     private dying_count: number = 0
+    private confuse_cnt: number = 0
     private frame: number = 0
     private count: number = 0
     private turn: number = 0
@@ -34,6 +35,7 @@ export class Obj {
     private h = 26
     private hp: number
     private frame_freq: number = 12
+    private confusing_sprite: PIXI.AnimatedSprite
     private static able_to_out: boolean = false
     private constructor(private container, private name: string, private enemy_flag: boolean,
         private state: string, private x: number, private y: number,
@@ -97,8 +99,17 @@ export class Obj {
         else this.move(this.vx, this.vy)
         this.vx = this.vy = 0
     }
+    private confuse() {
+        this.confuse_cnt = 200
+        this.confusing_sprite = GraphicManager.GetInstance().GetSprite("hatena")
+        this.confusing_sprite.zIndex = 10000
+        this.confusing_sprite.anchor.y = 1.5
+        this.confusing_sprite.animationSpeed = 0.1
+        this.confusing_sprite.play()
+        this.sprite.addChild(this.confusing_sprite)
+    }
     private fighting_move() {
-        let dam = [0, 0, 0]
+        let dam = { damage: 0, knockback: [0, 0], confusion: false, poison: false }
         if (this.dying_count) {
             this.dying_count++
             this.sprite.alpha = 1 - this.dying_count / 30
@@ -106,9 +117,19 @@ export class Obj {
             return
         }
         Effect.check_collision(this.x, this.y, this.enemy_flag, dam)
-        if (dam[0] || dam[1]) {
-            Obj.set_damage(this, dam[0], dam[1], dam[2])
+        if (dam.damage || dam.knockback[0]) {
+            Obj.set_damage(this, dam.damage, dam.knockback[0], dam.knockback[1])
         }
+        if (this.confuse_cnt > 0) {
+            this.confuse_cnt--
+            if (this.confuse_cnt == 0) {
+                this.sprite.removeChild(this.confusing_sprite)
+            }
+        }
+        if (dam.confusion) {
+            this.confuse()
+        }
+        if (this.confuse_cnt > 150) return
         if (this.knocking_count) return
         if (this.attacking_count) {
             this.attaking_move()
@@ -137,6 +158,7 @@ export class Obj {
             case "slash":
                 return (dx * dx + dy * dy <= 50 * 50)
             case "tackle":
+            case "strong_tackle":
                 return (dx * dx + dy * dy <= 50 * 50)
             case "punch":
                 return (dx * dx + dy * dy <= 45 * 45)
@@ -146,6 +168,7 @@ export class Obj {
             case "ice":
                 return (dx * dx + dy * dy <= 128 * 128)
             case "tornado":
+            case "confusion":
                 return (dx * dx + dy * dy <= 192 * 192)
             case "bullet":
                 return Math.abs(dy) <= 32
@@ -153,38 +176,49 @@ export class Obj {
     }
     private attack(target: Obj, dx: number, dy: number) {
         this.take_turn(dx, dy)
+        let enemy_flag = !target.enemy_flag
         switch (this.data.attack) {
             case "slash":
-                Effect.create_effect("slash", this.x + dx, this.y + dy, this.enemy_flag)
+                Effect.create_effect("slash", this.x + dx, this.y + dy, enemy_flag)
                 this.attacking_count = 15
                 Obj.set_damage(target, 50, DX[this.turn], DY[this.turn])
                 return
             case "tackle":
-                Effect.create_effect("hit", this.x + dx, this.y + dy, this.enemy_flag)
+                Effect.create_effect("hit", this.x + dx, this.y + dy, enemy_flag)
                 this.attacking_count = 60
                 Obj.set_damage(target, 10, DX[this.turn], DY[this.turn])
                 return
+            case "strong_tackle":
+                Effect.create_effect("hit", this.x + dx - 2, this.y + dy - 2, enemy_flag)
+                Effect.create_effect("hit", this.x + dx + 2, this.y + dy + 2, enemy_flag)
+                this.attacking_count = 60
+                Obj.set_damage(target, 40, DX[this.turn], DY[this.turn])
+                return
             case "punch":
-                Effect.create_effect("hit", this.x + dx, this.y + dy, this.enemy_flag)
+                Effect.create_effect("hit", this.x + dx, this.y + dy, enemy_flag)
                 this.attacking_count = 8
                 Obj.set_damage(target, 3, DX[this.turn] / 2, DY[this.turn] / 2)
                 return
             case "explosion":
             case "fire":
             case "ice":
-                Effect.create_effect(this.data.attack, this.x + dx, this.y + dy, this.enemy_flag)
+                Effect.create_effect(this.data.attack, this.x + dx, this.y + dy, enemy_flag)
                 this.attacking_count = 80
                 return
             case "thunder":
-                Effect.create_effect(this.data.attack, this.x + dx, this.y + dy, this.enemy_flag)
+                Effect.create_effect(this.data.attack, this.x + dx, this.y + dy, enemy_flag)
                 this.attacking_count = 120
                 return
+            case "confusion":
+                Effect.create_effect(this.data.attack, this.x + dx, this.y + dy, enemy_flag)
+                this.attacking_count = 300
+                return
             case "tornado":
-                Effect.create_effect(this.data.attack, this.x, this.y, this.enemy_flag, Math.atan2(dy, dx))
+                Effect.create_effect(this.data.attack, this.x, this.y, enemy_flag, Math.atan2(dy, dx))
                 this.attacking_count = 120
                 return
             case "bullet":
-                Effect.create_effect(this.data.attack, this.x, this.y, this.enemy_flag, Math.atan2(dy, dx) + (Math.random() - 0.5) * Math.PI / 30)
+                Effect.create_effect(this.data.attack, this.x, this.y, enemy_flag, Math.atan2(dy, dx) + (Math.random() - 0.5) * Math.PI / 30)
                 this.attacking_count = 5
                 return
 
@@ -193,6 +227,7 @@ export class Obj {
     private attaking_move() {
         switch (this.data.attack) {
             case "tackle":
+            case "strong_tackle":
                 if (this.attacking_count > 55) {
                     this.sprite.x += DX[this.turn] * 5
                     this.sprite.y += DY[this.turn] * 5
@@ -236,7 +271,7 @@ export class Obj {
         let d: number = 1000
         let target
         Obj.chara_list.forEach(n => {
-            if (n.enemy_flag !== this.enemy_flag && n.dying_count === 0) {
+            if ((this.confuse_cnt || n.enemy_flag !== this.enemy_flag) && n.dying_count === 0 && n != this) {
                 const dx = n.x - this.x, dy = n.y - this.y
                 if (d > Math.sqrt(dx * dx + dy * dy)) {
                     target = n
