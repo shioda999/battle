@@ -81,6 +81,7 @@ export class Field extends Scene {
             sum += data.enemy_pattern[i].p
             if (v <= sum) {
                 enemys = data.enemy_pattern[i].enemys
+                break
             }
         }
         enemys.forEach(n => {
