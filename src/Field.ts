@@ -26,13 +26,13 @@ export class Field extends Scene {
             Obj.destroy()
             Sound.stop("all")
         }
-        this.set_charactors()
         Sound.play(Field.cur_field_data.bgm, true)
 
-        Result.init(this.container, () => Field.return_button_click(), () => Field.next_button_click())
 
         const inst = GraphicManager.GetInstance()
         inst.SetLoadedFunc(() => {
+            Result.init(this.container, () => Field.return_button_click(), () => Field.next_button_click())
+            this.set_charactors()
             this.loop()
         })
     }
